@@ -282,17 +282,17 @@ Lasso	Higher error, likely underfit	Use GridSearchCV to tune alpha — Lasso is 
 ![image](https://github.com/user-attachments/assets/253eaeda-c3c7-4ce5-9ead-d2e8c224576f)
 
 
-Next Steps & Strategic Recommendations
+### Next Steps & Strategic Recommendations
 
-1)Integrate Insights into Inventory Management
+#### 1)Integrate Insights into Inventory Management
 Action: Prioritize acquiring vehicles that:
 
 - Are in “like new” or “excellent” condition
 - Have low mileage
 - Belong to top-performing manufacturers e.g Ram
 
-2) Refine Data Collection & Standardization
+#### 2) Refine Data Collection & Standardization
  Clean and consolidate high-cardinality fields like manufacturer and model during data entry or ingestion
  Less group per categoral feature e.g instead of new and like new and excellent just one group excellent
-3) Implement model for each state and or each manufactuer and build a dashboard
+#### 3) Implement model for each state and or each manufactuer and build a dashboard
 
