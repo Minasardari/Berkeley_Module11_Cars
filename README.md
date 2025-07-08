@@ -130,15 +130,19 @@ and the Price and year has clearly slopes upward or age downward, confirming the
 Boxplot of price across 'condition', 'type','cylinders','fuel','title_status','drive','paint_color','transmission'
 I was able to get some hints about noise from boxplot and outliers for price for each category
 
-![image](https://github.com/user-attachments/assets/d8804526-95d2-4886-8829-2411a7098c17)
+![image](https://github.com/user-attachments/assets/91ad2394-c837-4b2b-a7a8-72717fcfa691)
+
 Good" condition has higher median than "excellent"
 "Unknown" condition has a wide range and high median
-![image](https://github.com/user-attachments/assets/e0ad8e79-fb5f-45d9-8e94-a9664880dd50)
-![image](https://github.com/user-attachments/assets/0d04aacd-9c69-4bdb-83bb-9137fa862ddc)
-![image](https://github.com/user-attachments/assets/be18f21c-75ed-4914-80a0-ee5cc85ea8f9)
-![image](https://github.com/user-attachments/assets/88ac0f64-bdb4-4efb-a304-5dfb59e882fd)
-![image](https://github.com/user-attachments/assets/73c1437c-06cf-4ca6-8aec-0569b0acc17e)
-![image](https://github.com/user-attachments/assets/da3ded7d-71b3-41b2-9590-d83d0d1116f3)
+![image](https://github.com/user-attachments/assets/10e18562-8cb2-4712-9344-76d716e43bc1)
+![image](https://github.com/user-attachments/assets/53001c5c-2587-4990-ad05-c3c458b57b3a)
+![image](https://github.com/user-attachments/assets/63ad95f6-8079-4882-8ed4-b6c3b95dda15)
+![image](https://github.com/user-attachments/assets/52ee4359-a4a8-4722-a87b-8816f5ff019c)
+ ![image](https://github.com/user-attachments/assets/d1a26db2-b648-4188-a5c0-eaeaa6879efc)
+![image](https://github.com/user-attachments/assets/95a58837-cc7d-4c7c-baf5-edc472a92d00)
+![image](https://github.com/user-attachments/assets/73ecba1e-0777-478d-a5bf-1b18a8390ffa)
+![image](https://github.com/user-attachments/assets/bec0e23e-20be-43de-8fff-85cb030ae272)
+
 
 we can eliminate outlers for some like other is transmission
 ``````python
@@ -203,4 +207,81 @@ I have decided to use two advanced forms of linear regression:
 - applying GridSearchCV for Ridge to fine the best alpha
 
 ### Model Evaluation
+
+📊 Model Evaluation Summary
+🔧 Ridge Regression with Polynomial Features
+GridSearchCV was used to tune:
+
+degree of polynomial features
+
+alpha (regularization strength)
+
+✅ Best Hyperparameters:
+
+Degree: 2
+
+Alpha: 1
+
+🧮 Performance:
+
+Train MSE: 0.1215
+
+Test MSE: 0.1225
+
+Test R² Score: -0.1225 → ❌ Worse than baseline
+
+📌 Interpretation:
+Model overfits mildly (train ≈ test error, but R² < 0).
+
+Adding polynomial features may have introduced non-informative complexity.
+
+The feature signal might be weak or too noisy.
+
+🔧 Lasso Regression
+Used with default or manually set alpha (assumed 0.1 or similar).
+
+❌ No GridSearchCV tuning
+
+🧮 Performance:
+
+Train MSE: 0.2710
+
+Test MSE: 0.2724
+
+
+📌 Interpretation:
+Lasso aggressively shrinks coefficients, possibly dropping too many predictors.
+Without tuning alpha, it may be underfitting.
+
+
+Model	Observations	Suggestions
+Ridge	Slight overfitting, R² < 0	we can try simpler features (drop polynomial), or include more informative variables
+Lasso	Higher error, likely underfit	Use GridSearchCV to tune alpha — Lasso is sensitive to this
+
+### Data Visualization for Storytelling
+##### 🚗 Average Price by Car Condition Clearly communicates the negative relationship between mileage and price.
+
+![image](https://github.com/user-attachments/assets/dd6793e7-370f-4b76-8ee5-d58ffb16fc2c)
+
+##### 📉 Odometer vs. Price with Trendline
+
+![image](https://github.com/user-attachments/assets/0084747e-5a7d-451e-bb82-3b73ebe3225d)
+![image](https://github.com/user-attachments/assets/81e5898e-4bfd-489d-9bf8-d7a36d946fe5)
+
+##### 🏷️Top 20 Manufacturers by Listing Frequency,Helps dealership focus on the most common and popular brands.
+
+![image](https://github.com/user-attachments/assets/87f05574-59e3-43d7-ab30-ec7f30a9a76b)
+
+
+##### 🧠Feature Importance
+
+![image](https://github.com/user-attachments/assets/8e02c772-8ef4-4919-8d03-a258bf651f38)
+
+
+##### 📈 Predicted vs. Actual Prices
+![image](https://github.com/user-attachments/assets/253eaeda-c3c7-4ce5-9ead-d2e8c224576f)
+
+
+
+
 
