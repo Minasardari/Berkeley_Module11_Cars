@@ -1,4 +1,4 @@
-# Berkeley_Module11_Cars
+# Car Price Prediction
 ### Cource : Module 11 Berkeley
 Link to my notebook: https://github.com/Minasardari/Berkeley_Module11_Cars/blob/main/MinaSardari_Car_price.ipynb
 ### business goal : 
